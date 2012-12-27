@@ -4,3 +4,7 @@
 *.jar
 *.war
 *.ear
+/.metadata
+/basketstats/target
+/basketstats/basketstats-dal/target
+/basketstats/basketstats-web/target
