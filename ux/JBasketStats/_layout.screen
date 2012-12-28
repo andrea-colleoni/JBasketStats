@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Window" id="1" width="705" height="497" text="Basket Stats" measuredWidth="705" measuredHeight="497" minimizeButton="true"/>
+  <widgets xsi:type="model:Accordion" id="2" y="19" width="145" height="478" text="Profile&#xA;-Edit preferences&#xA;Campionships&#xA;- List&#xA;- New championship&#xA;Teams&#xA;Players" measuredWidth="145" measuredHeight="478" selection="3">
+    <items x="0" y="2" width="145" height="25" text="Profile"/>
+    <items x="0" y="27" width="0" height="0" text="-Edit preferences"/>
+    <items x="0" y="27" width="145" height="25" text="Campionships"/>
+    <items x="0" y="52" width="145" height="25" text="- List"/>
+    <items x="0" y="77" width="145" height="25" text="- New championship"/>
+    <items x="0" y="428" width="145" height="25" text="Teams"/>
+    <items x="0" y="453" width="145" height="25" text="Players"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" id="3" x="536" y="27" width="159" text="Search" measuredWidth="159" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:HSplitter" id="4" x="144" y="120" width="561" measuredWidth="561" measuredHeight="11"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

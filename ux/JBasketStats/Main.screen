@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" y="-2" measuredWidth="705" measuredHeight="497" dimmed="true">
+    <screen xsi:type="model:Screen" href="_layout.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Table" id="3" x="144" y="130" width="561" height="365" text="Name,Last\nName,=. Age v,(w:30). Kids,Likes,(align:center). Actions&#xA;Peter,Severin,35,[x],{computer},[Edit] [View]&#xA;Henri,Severin,5,[],{train},[Edit] [View]&#xA;Olga,Severin,60,[x],{note},[Edit] [View]&#xA;[-] You can even&#xA;  [+] Make a&#xA;  [+] Tree table" measuredWidth="561" measuredHeight="365" selection="2" verticalScrollbar="true" alternative="#eeeeee">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

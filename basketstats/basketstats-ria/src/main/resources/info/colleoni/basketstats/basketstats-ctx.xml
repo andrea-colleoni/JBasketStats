@@ -10,7 +10,8 @@
 	
 	<context:annotation-config />
 	
-	<import resource="info/colleoni/basketstats/conf/datasource-beans.xml"/>
-	<import resource="info/colleoni/basketstats/conf/mybatis-beans.xml"/>
-	<import resource="info/colleoni/basketstats/service-beans.xml"/>
+	<import resource="classpath:info/colleoni/basketstats/conf/datasource-beans.xml"/>
+	<import resource="classpath:info/colleoni/basketstats/conf/mybatis-beans.xml"/>
+	<import resource="classpath:info/colleoni/basketstats/service-beans.xml"/>
+	<import resource="classpath:info/colleoni/basketstats/helpers-beans.xml"/>
 </beans>
