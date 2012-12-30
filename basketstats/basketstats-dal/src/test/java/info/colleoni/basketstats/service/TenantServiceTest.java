@@ -36,4 +36,15 @@ public class TenantServiceTest {
 		}
 		Assert.assertTrue(testResult);
 	}
+	
+	@Test
+	public void testDML() {
+		boolean testResult = false;
+		Tenant t = new Tenant();
+		t.setDescription("test tenant");
+		t.setName("Test");
+		t.setSiteAdmin(false);
+		tenantService.insert(t);
+		Assert.assertTrue(testResult);
+	}	
 }

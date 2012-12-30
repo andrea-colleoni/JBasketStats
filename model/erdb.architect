@@ -4,8 +4,8 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="BasketStats" />
    <property key="Connection Type" value="MySQL" />
+   <property key="Logical" value="PlayPen Database" />
    <property key="JDBC URL" value="jdbc:mysql://localhost:3306/basketstats" />
    <property key="UID" value="root" />
    <property key="PWD" value="password" />
@@ -17,7 +17,7 @@
   </data-source>
   <data-source id="DS0">
    <property key="Connection Type" value="MySQL" />
-   <property key="Logical" value="BasketStats" />
+   <property key="Logical" value="PlayPen Database" />
    <property key="JDBC URL" value="jdbc:mysql://localhost:3306/basketstats" />
    <property key="UID" value="root" />
    <property key="PWD" value="password" />
@@ -29,7 +29,7 @@
   </data-source>
  </project-data-sources>
  <source-databases>
-  <database id="DB0" populated="true" UUID="7cd0f927-e9ac-4d33-9252-00da394cef89" dbcs-ref="DS0" name="BasketStats" physicalName="BasketStats" >
+  <database id="DB0" populated="true" UUID="7cd0f927-e9ac-4d33-9252-00da394cef89" dbcs-ref="DS0" name="PlayPen Database" physicalName="BasketStats" >
    <catalog id="CAT1" populated="false" UUID="0e6ba4e2-5dae-41d2-92fd-14b3e70f26d2" name="information_schema" nativeTerm="database" physicalName="information_schema" >
    </catalog>
    <catalog id="CAT2" populated="true" UUID="714cd880-f01e-4c98-982c-964345f37807" name="basketstats" nativeTerm="database" physicalName="basketstats" >
@@ -344,7 +344,7 @@
     <column id="COL92" populated="true" UUID="7523d964-ffba-4cc3-85b8-bd29cd2d492e" autoIncrement="false" defaultValue="" name="description" nullable="1" physicalName="description" precision="200" referenceCount="1" scale="0" sourceDataTypeName="VARCHAR" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL93" populated="true" UUID="0c9b73c9-48d5-4cd7-92d5-f24876aa5dd6" autoIncrement="false" defaultValue="" name="siteAdmin" nullable="1" physicalName="siteAdmin" precision="0" referenceCount="1" scale="0" sourceDataTypeName="BIT" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL93" populated="true" UUID="0c9b73c9-48d5-4cd7-92d5-f24876aa5dd6" autoIncrement="false" defaultValue="" name="site_admin" nullable="1" physicalName="site_admin" precision="0" referenceCount="1" scale="0" sourceDataTypeName="BIT" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
      <remarks></remarks>
     </column>
     </folder>
@@ -1375,10 +1375,10 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="726" viewportY="536" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="23" viewportY="375" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB89" x="590" y="610" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB96" x="749" y="336" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB105" x="1253" y="1021" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

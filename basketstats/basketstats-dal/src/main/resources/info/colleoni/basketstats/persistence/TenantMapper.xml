@@ -7,11 +7,30 @@
 
   <cache />
   
+  <sql id="columns"> id,name, description, site_admin </sql>
+  
   <select id="all" resultType="Tenant">
   	SELECT
-  		*
+  		<include refid="columns"/>
   	FROM
   		tenant
   </select>
+  
+  <insert id="create" parameterType="Tenant" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO tenant (name, description, site_admin) 
+  	VALUES (#{name}, #{description}, #{siteAdmin});
+  </insert>
+  
+  <update id="save" parameterType="Tenant">
+  	UPDATE tenant 
+  	SET name = #{name}, description = #{description}, site_admin = #{siteAdmin}) 
+  	WHERE id = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="Tenant">
+  	DELETE tenant 
+  	WHERE id = #{id};
+  </delete>   
   
 </mapper>

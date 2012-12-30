@@ -7,6 +7,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="basketstats-ds" />
 		<property name="typeAliasesPackage" value="info.colleoni.basketstats.domain" />
+		<property name="configLocation" value="/info/colleoni/basketstats/conf/mybatis-config.xml" />
 	</bean>
 
 	<bean id="transactionManager"
