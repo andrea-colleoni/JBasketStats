@@ -22,7 +22,7 @@ public interface TenantMapper {
 	 * @param tenantId the tenant id
 	 * @return the tenant
 	 */
-	Tenant getTenant(int tenantId);
+	Tenant get(int tenantId);
 
 	/**
 	 * Insert tenant.

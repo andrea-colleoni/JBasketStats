@@ -36,15 +36,25 @@ public class TenantServiceTest {
 		}
 		Assert.assertTrue(testResult);
 	}
-	
+
 	@Test
 	public void testDML() {
-		boolean testResult = false;
 		Tenant t = new Tenant();
+		
 		t.setDescription("test tenant");
 		t.setName("Test");
 		t.setSiteAdmin(false);
 		tenantService.insert(t);
-		Assert.assertTrue(testResult);
-	}	
+		Assert.assertTrue(t.getId() > 0);
+
+		t = tenantService.get(t.getId());
+		t.setDescription("modified");
+		tenantService.update(t);
+		t = tenantService.get(t.getId());
+		Assert.assertEquals(t.getDescription(), "modified");
+
+		tenantService.delete(t);
+		t = tenantService.get(t.getId());
+		Assert.assertNull(t);
+	}
 }

@@ -39,7 +39,7 @@ public class TenantService {
 	 * @return the tenant
 	 */
 	public Tenant get(int tenantId) {
-		return tenantMapper.getTenant(tenantId);
+		return tenantMapper.get(tenantId);
 	}
 	
 	/**
