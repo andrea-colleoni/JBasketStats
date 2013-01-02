@@ -7,7 +7,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>basketstats-dal</module>
-  	<module>basketstats-ria</module>
 	<module>basketstats-web</module>
   </modules>
 </project>

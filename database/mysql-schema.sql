@@ -84,7 +84,7 @@ CREATE TABLE tenant (
                 id INT AUTO_INCREMENT NOT NULL,
                 name VARCHAR(50) DEFAULT '' NOT NULL,
                 description VARCHAR(200),
-                siteAdmin TINYINT,
+                site_admin TINYINT,
                 PRIMARY KEY (id)
 );
 

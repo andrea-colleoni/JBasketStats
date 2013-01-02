@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+<meta charset="UTF-8" />
+<title>JBasketStats - Basketball Statistics</title>
+<link rel="shortcut icon" th:href="@{/images/favicon.ico}" href="images/favicon.ico" />
+</head>
+<body>
+	<h1 th:utext="${page.title}">Page Title</h1>
+
+	<div th:fragment="menu">
+		<ul>
+			<li>Home</li>
+			<li>Tenant
+				<ul>
+					<li>Tenant list</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<div th:fragment="footer">
+		<span th:utext="#{copyright}">&copy; 2013 - Colleoni.INFO</span>
+	</div>
+</body>
+</html>
