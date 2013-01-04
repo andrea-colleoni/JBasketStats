@@ -18,12 +18,12 @@
 			<nav th:fragment="menu">
 				<ul class="menu">
 					<li><a href="home.html" th:href="@{/home.html}">Home</a></li>
-					<li><a href="#" class="parent-menu-link">Tenant</a>
+					<li><a href="#" class="parent-menu-link" th:utext="#{tenant.menu.main}">Tenant</a>
 						<ul>
 							<li><a href="tenant/list.html" class="list-menu-link"
-								th:href="@{/tenant/list.html}">Tenant list</a></li>
-							<li><a href="tenant/list.html" class="form-menu-link"
-								th:href="@{/tenant/list.html}">New tenant</a></li>
+								th:href="@{/tenant/list.html}" th:utext="#{tenant.menu.list}">Tenant list</a></li>
+							<li><a href="tenant/create.html" class="form-menu-link"
+								th:href="@{/tenant/create.html}" th:utext="#{tenant.menu.create}">Create tenant</a></li>
 						</ul></li>
 				</ul>
 			</nav>

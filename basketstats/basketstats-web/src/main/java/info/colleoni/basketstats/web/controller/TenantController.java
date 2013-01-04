@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 
  */
 @Controller
+@RequestMapping("/tenant")
 public class TenantController {
 
 	@Autowired
@@ -32,9 +33,14 @@ public class TenantController {
 		return this.tenantService.all();
 	}
 
-	@RequestMapping({ "/", "/tenant/list" })
-	public String home() {
+	@RequestMapping({ "/", "/list" })
+	public String list() {
 		return "/tenant/list";
 	}
+	
+	@RequestMapping({ "/", "/create" })
+	public String create() {
+		return "/tenant/create";
+	}	
 
 }
