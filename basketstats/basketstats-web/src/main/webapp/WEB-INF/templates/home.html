@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head  th:include="layout::header">
+<head  th:include="layout::head">
 	<meta charset="UTF-8" />
 	<title>JBasketStats - Basketball Statistics (STATIC)</title>
 </head>
 <body>
-	<h1 th:utext="#{welcome}">Hello World!</h1>
+	<header role="banner" th:include="/layout::header">
+	</header>
 
-	<div th:include="layout::menu">
-		<ul>
-			<li>Hello World!</li>
-		</ul>
+	<div id="content" class="group" role="main">
+		<span th:utext="#{welcome}">Welcome</span>
 	</div>
 	
-	<div th:include="layout::footer">
-		<span>&copy; 2013 - Colleoni.INFO</span>
-	</div>	
+	<footer th:include="layout::footer">
+	</footer>	
 </body>
 </html>
