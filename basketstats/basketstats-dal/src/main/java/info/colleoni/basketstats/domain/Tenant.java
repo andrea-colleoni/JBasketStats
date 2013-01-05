@@ -12,6 +12,7 @@ public class Tenant implements Serializable {
 	
 	/** The id. */
 	private int id;
+	
 	/** The name. */
 	private String name;
 	

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="/layout::head">
+<meta charset="UTF-8" />
+<title>JBasketStats - Basketball Statistics (STATIC)</title>
+</head>
+<body>
+	<header role="banner" th:include="/layout::header"> </header>
+
+	<div id="content" class="group" role="main">
+		<div id="tenant-form" class="default-form clearfix">
+			<h1 th:utext="#{tenant.create.title}">New tenant</h1>
+			<h2 th:utext="#{form.instructions}">Fill out the form below.</h2>
+
+			<p id="success">Thanks for your message! We will get back to you
+				ASAP!</p>
+			<form method="post" action="#" th:action="@{/tenant/process.html}"
+				th:object="${tenant}">
+				<ul id="errors" class="" th:if="${#fields.hasErrors('*')}">
+					<li id="info">There were some problems with your form
+						submission:</li>
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input
+						is incorrect</li>
+				</ul>
+
+				<label for="name" th:utext="#{tenant.name.label}">Name<span
+					class="required">*</span></label>
+				<input type="text" id="name" name="name"
+					th:field="*{name}" placeholder="Tenant Name" required="required"
+					autofocus="autofocus" />
+				<label for="description"
+					th:utext="#{tenant.description.label}">Description<span
+					class="required">*</span></label>
+				<input type="text" id="description"
+					name="description" th:field="*{description}"
+					placeholder="Tenant description (max 200 chars)"
+					required="required" autofocus="autofocus" />
+				<label
+					for="siteAdmin" th:utext="#{tenant.siteAdmin.label}">Site
+					admin </label>
+				<input type="checkbox" id="siteAdmin" name="siteAdmin"
+					th:field="*{siteAdmin}" autofocus="autofocus" />
+				<span
+					id="loading"></span>
+				<input type="submit" value="Submit" th:value="#{form.submit.text}"
+					id="submit-button" />
+				<p id="req-field-desc">
+					<span class="required" th:utext="#{form.requiredField}">*</span> indicates a required field
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<footer th:include="layout::footer"> </footer>
+</body>
+</html>
