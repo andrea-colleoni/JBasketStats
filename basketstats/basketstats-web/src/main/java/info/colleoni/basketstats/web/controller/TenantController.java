@@ -14,10 +14,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * The Class TenantController.
@@ -45,19 +45,6 @@ public class TenantController {
 	public List<Tenant> populateTenants() {
 		return this.tenantService.all();
 	}
-	
-	/** The tenant. */
-	private Tenant tenant;
-	
-	/**
-	 * Gets the tenant.
-	 *
-	 * @return the tenant
-	 */
-	@ModelAttribute("tenant")
-	public Tenant getTenant() {
-		return this.tenant;
-	}	
 
 	/**
 	 * List.
@@ -75,11 +62,17 @@ public class TenantController {
 	 * @param model the model
 	 * @return the string
 	 */
-	@RequestMapping({ "/", "/create" })
-	public String create(Model model) {
-		this.tenant = new Tenant();
+	@RequestMapping({ "/create" })
+	public String create(@ModelAttribute("tenant") Tenant tenant) {
+		tenant = new Tenant();
 		return "/tenant/form";
 	}
+	
+	@RequestMapping({ "/get" })
+	public String get(@RequestParam("id") int id, @ModelAttribute("tenant") Tenant tenant) {
+		tenant = tenantService.get(id);
+		return "/tenant/form";
+	}	
 
 	/**
 	 * Form.
@@ -89,11 +82,10 @@ public class TenantController {
 	 * @param model the model
 	 * @return the string
 	 */
-	@RequestMapping({ "/", "/process" })
+	@RequestMapping({ "/process" })
 	public String form(@Valid Tenant tenant, BindingResult errors,
 			Map<String, Object> model) {
 		tenantService.insert(tenant);
-		this.tenant = tenant;
 		return "/tenant/form";
 	}
 

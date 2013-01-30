@@ -23,7 +23,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="t : ${allTenants}">
-						<td th:text="${t.id}">1</td>
+						<td><input type="hidden" th:value="${t.id}" value="1" /><span th:text="${t.id}">1</span></td>
 						<td th:text="${t.name}">The tenant</td>
 						<td th:text="${t.siteAdmin}? #{bool.true} : #{bool.false}">yes</td>
 					</tr>
@@ -33,5 +33,15 @@
 	</div>
 
 	<footer th:include="layout::footer"> </footer>
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+	    $('#tenant-list tr').click(function() {
+	        var fldId = $(this).find("input");
+	        window.location = 'get.html?id=' + fldId.val();
+	    });
+
+	});	
+	</script>
 </body>
 </html>

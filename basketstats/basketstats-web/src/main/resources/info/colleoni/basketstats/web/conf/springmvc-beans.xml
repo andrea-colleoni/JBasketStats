@@ -32,4 +32,7 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="info/colleoni/basketstats/web/messages" />
 	</bean>
+	
+	<!-- Default page -->
+	<mvc:view-controller path="/" view-name="home"/>
 </beans>
