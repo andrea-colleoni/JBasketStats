@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * The Class Tenant.
  */
-public class Tenant implements Serializable {
+public final class Tenant implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 213688285947878140L;
@@ -44,7 +44,7 @@ public class Tenant implements Serializable {
 
 	/**
 	 * Gets the id.
-	 *
+	 * 
 	 * @return the id
 	 */
 	public int getId() {
@@ -68,6 +68,8 @@ public class Tenant implements Serializable {
 	}
 
 	/**
+	 * Sets the description.
+	 *
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
@@ -82,6 +84,19 @@ public class Tenant implements Serializable {
 	}
 
 	/**
+	 * Sets the name.
+	 * 
+	 * @param value
+	 *            the new name
+	 */
+	public void setName(final String value) {
+		// Automatically generated method. Please do not modify this code.
+		this.name = value;
+	}
+
+	/**
+	 * Sets the site admin.
+	 *
 	 * @param siteAdmin the siteAdmin to set
 	 */
 	public void setSiteAdmin(boolean siteAdmin) {

@@ -623,13 +623,13 @@
     <column id="COL170" populated="true" UUID="21a3f605-f734-4af0-9720-1b37827333aa" autoIncrement="false" autoIncrementSequenceName="team_groupage_id_seq" defaultValue="" name="groupage_id" nullable="0" physicalName="groupage_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL171" populated="true" UUID="52a85fd6-d011-4ad4-9572-883022211439" autoIncrement="false" autoIncrementSequenceName="game_home_team_seq" defaultValue="" name="home_team" nullable="0" physicalName="home_team" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL171" populated="true" UUID="52a85fd6-d011-4ad4-9572-883022211439" autoIncrement="false" autoIncrementSequenceName="game_home_team_id_seq" defaultValue="" name="home_team_id" nullable="0" physicalName="home_team_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL172" populated="true" UUID="c76c19b9-4fe2-4701-8ddc-6239b78f131f" autoIncrement="false" autoIncrementSequenceName="game_visitor_team_seq" defaultValue="" name="visitor_team" nullable="0" physicalName="visitor_team" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL172" populated="true" UUID="c76c19b9-4fe2-4701-8ddc-6239b78f131f" autoIncrement="false" autoIncrementSequenceName="game_visitor_team_id_seq" defaultValue="" name="visitor_team_id" nullable="0" physicalName="visitor_team_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL173" populated="true" UUID="f6b35ea0-ef6f-4b37-b158-91c70ba08093" autoIncrement="false" autoIncrementSequenceName="game_match_date_seq" defaultValue="" name="match_date" nullable="0" physicalName="match_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL173" populated="true" UUID="f6b35ea0-ef6f-4b37-b158-91c70ba08093" autoIncrement="false" autoIncrementSequenceName="game_game_date_seq" defaultValue="" name="game_date" nullable="0" physicalName="game_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     <column id="COL174" populated="true" UUID="b38501fd-f3df-4643-9d5e-4b6c5ee0cf17" autoIncrement="false" autoIncrementSequenceName="game_round_seq" defaultValue="" name="round" nullable="0" physicalName="round" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -1378,7 +1378,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="23" viewportY="375" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="721" viewportY="1125" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB89" x="590" y="610" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB96" x="749" y="336" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB105" x="1253" y="1021" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
