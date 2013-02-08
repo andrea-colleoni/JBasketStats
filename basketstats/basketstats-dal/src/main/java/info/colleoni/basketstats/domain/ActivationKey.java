@@ -1,10 +1,19 @@
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * The Class ActivationKey.
  */
-public class ActivationKey {
+public class ActivationKey implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5843265992196390293L;
+
+	/** The id. */
+	private int id;	
 
 	/** The end date. */
 	private Date endDate;
@@ -153,6 +162,20 @@ public class ActivationKey {
 	 */
 	public void setTenantId(int tenantId) {
 		this.tenantId = tenantId;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

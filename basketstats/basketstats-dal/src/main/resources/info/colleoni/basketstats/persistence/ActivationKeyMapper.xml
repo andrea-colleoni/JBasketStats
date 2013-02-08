@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.ActivationKeyMapper">
+
+  <cache />
+  
+  <sql id="keyColumns"> id </sql>
+  <sql id="columns"> start_date,  end_date, key_content,  tenant_id,  key_type_id  </sql>
+  <sql id="table"> activation_key  </sql>
+  
+  <select id="all" resultType="ActivationKey">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>;
+  </select>
+  
+  <select id="get" parameterType="int" resultType="ActivationKey">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>
+  	WHERE <include refid="keyColumns"/> = #{id};  		
+  </select>  
+  
+  <insert id="create" parameterType="ActivationKey" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO 
+  		<include refid="table"/> 
+  		(<include refid="columns"/>) 
+  	VALUES 
+  		(
+  		#{startDate},  
+  		#{endDate},
+  		#{keyContent},  
+  		#{tenantId},  
+  		#{keyTypeId}
+  		);
+  </insert>
+  
+  <update id="save" parameterType="ActivationKey">
+  	UPDATE 
+  		<include refid="table"/> 
+  	SET 
+	  	start_date = #{startDate}, 
+	  	end_date = #{endDate}, 
+	  	key_content = #{keyContent}, 
+	  	tenant_id = #{tenantId}, 
+	  	key_type_id = #{keyTypeId}
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="ActivationKey">
+  	DELETE FROM 
+  		<include refid="table"/> 
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </delete>   
+  
+</mapper>

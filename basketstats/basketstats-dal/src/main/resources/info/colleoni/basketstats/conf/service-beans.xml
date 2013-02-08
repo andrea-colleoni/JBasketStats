@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
-	
+
+	<bean id="activationKeyService" class="info.colleoni.basketstats.service.ActivationKeyService">
+	</bean>
+
+	<bean id="attachmentService" class="info.colleoni.basketstats.service.AttachmentService">
+	</bean>
+
+	<bean id="attachmentTypeService" class="info.colleoni.basketstats.service.AttachmentTypeService">
+	</bean>
+
+	<bean id="championshipService" class="info.colleoni.basketstats.service.ChampionshipService">
+	</bean>
+
+	<bean id="documentTypeService" class="info.colleoni.basketstats.service.DocumentTypeService">
+	</bean>
+
 	<bean id="tenantService" class="info.colleoni.basketstats.service.TenantService">
-	</bean>	
-		
+	</bean>
+
 </beans>

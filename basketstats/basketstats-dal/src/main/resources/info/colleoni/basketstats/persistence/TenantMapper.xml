@@ -7,38 +7,55 @@
 
   <cache />
   
-  <sql id="columns"> id,name, description, site_admin </sql>
+  <sql id="keyColumns"> id </sql>
+  <sql id="columns"> name, description, site_admin </sql>
+  <sql id="table"> tenant  </sql>
   
   <select id="all" resultType="Tenant">
   	SELECT
+  		<include refid="keyColumns"/>,
   		<include refid="columns"/>
   	FROM
-  		tenant
+  		<include refid="table"/>;
   </select>
   
   <select id="get" parameterType="int" resultType="Tenant">
   	SELECT
+  		<include refid="keyColumns"/>,
   		<include refid="columns"/>
   	FROM
-  		tenant
-  	WHERE id = #{id};  		
+  		<include refid="table"/>
+  	WHERE <include refid="keyColumns"/> = #{id};
   </select>  
   
   <insert id="create" parameterType="Tenant" useGeneratedKeys="true"
     keyProperty="id">
-  	INSERT INTO tenant (name, description, site_admin) 
-  	VALUES (#{name}, #{description}, #{siteAdmin});
+  	INSERT INTO 
+  		<include refid="table"/> 
+  		( <include refid="columns"/> ) 
+  	VALUES 
+  		(
+  		#{name}, 
+  		#{description}, 
+  		#{siteAdmin}
+  		);
   </insert>
   
   <update id="save" parameterType="Tenant">
-  	UPDATE tenant 
-  	SET name = #{name}, description = #{description}, site_admin = #{siteAdmin}
-  	WHERE id = #{id};
+  	UPDATE 
+  		<include refid="table"/> 
+  	SET 
+  		name = #{name}, 
+  		description = #{description}, 
+  		site_admin = #{siteAdmin}
+  	WHERE <include refid="keyColumns"/> = #{id};
   </update>  
   
   <delete id="remove" parameterType="Tenant">
-  	DELETE FROM tenant 
-  	WHERE id = #{id};
+  	DELETE FROM 
+  		<include refid="table"/> 
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
   </delete>   
   
 </mapper>

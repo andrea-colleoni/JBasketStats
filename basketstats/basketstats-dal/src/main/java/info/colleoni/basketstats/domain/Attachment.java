@@ -8,7 +8,7 @@ import java.util.Date;
 public final class Attachment extends ElementType {
 	
 	/** The gema id. */
-	private int gemaId;
+	private int gameId;
 	
 	/** The game. */
 	private Game game;
@@ -32,6 +32,12 @@ public final class Attachment extends ElementType {
 	private Member member;
 	
 	/** The team id. */
+	private int organizationId;
+	
+	/** The team. */
+	private Organization organization;	
+	
+	/** The team id. */
 	private int teamId;
 	
 	/** The team. */
@@ -51,8 +57,8 @@ public final class Attachment extends ElementType {
 	 *
 	 * @return the gemaId
 	 */
-	public int getGemaId() {
-		return gemaId;
+	public int getGameId() {
+		return gameId;
 	}
 	
 	/**
@@ -60,8 +66,8 @@ public final class Attachment extends ElementType {
 	 *
 	 * @param gemaId the gemaId to set
 	 */
-	public void setGemaId(int gemaId) {
-		this.gemaId = gemaId;
+	public void setGameId(int gemaId) {
+		this.gameId = gemaId;
 	}
 	
 	/**
@@ -278,5 +284,33 @@ public final class Attachment extends ElementType {
 	 */
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	/**
+	 * @return the organizationId
+	 */
+	public int getOrganizationId() {
+		return organizationId;
+	}
+
+	/**
+	 * @param organizationId the organizationId to set
+	 */
+	public void setOrganizationId(int organizationId) {
+		this.organizationId = organizationId;
+	}
+
+	/**
+	 * @return the organization
+	 */
+	public Organization getOrganization() {
+		return organization;
+	}
+
+	/**
+	 * @param organization the organization to set
+	 */
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
 	}
 }

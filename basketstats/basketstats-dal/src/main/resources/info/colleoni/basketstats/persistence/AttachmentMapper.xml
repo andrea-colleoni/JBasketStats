@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.AttachmentMapper">
+
+  <cache />
+  
+  <sql id="keyColumns"> id </sql>
+  <sql id="columns"> name,  description,  game_id,  mime_type,  content,  attachment_type_id,  member_id,  organization_id,  team_id,  person_id,  creation_date  </sql>
+  <sql id="table"> attachment  </sql>
+  
+  <select id="all" resultType="Attachment">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>;
+  </select>
+  
+  <select id="get" parameterType="int" resultType="Attachment">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>
+  	WHERE <include refid="keyColumns"/> = #{id};  		
+  </select>  
+  
+  <insert id="create" parameterType="Attachment" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO 
+  		<include refid="table"/> 
+  		(<include refid="columns"/>) 
+  	VALUES 
+  		(
+  		#{name},  
+  		#{description},  
+  		#{gameId},  
+  		#{mimeType},  
+  		#{content},  
+  		#{attachmentTypeId},  
+  		#{memberId},  
+  		#{organizationId},  
+  		#{teamId},  
+  		#{personId},  
+  		#{creationDate}
+  		);
+  </insert>
+  
+  <update id="save" parameterType="Attachment">
+  	UPDATE 
+  		<include refid="table"/> 
+  	SET 
+	  	name = #{name}, 
+	  	description = #{description}, 
+	  	game_id = #{gameId}, 
+	  	mime_type = #{mimeType}, 
+	  	content = #{content}, 
+	  	attachment_type_id = #{attachmentTypeId}, 
+	  	member_id = #{memberId}, 
+	  	organization_id = #{organizationId}, 
+	  	team_id = #{teamId}, 
+	  	person_id = #{personId}, 
+	  	creation_date = #{creationDate}
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="Attachment">
+  	DELETE FROM 
+  		<include refid="table"/> 
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </delete>   
+  
+</mapper>
