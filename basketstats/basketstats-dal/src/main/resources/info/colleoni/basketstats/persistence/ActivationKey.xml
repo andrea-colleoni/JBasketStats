@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.ActivationKeyMapper">
+
+  <cache />
+  
+  <sql id="columns"> id,name, description, site_admin </sql>
+  
+  <select id="all" resultType="ActivationKey">
+  	SELECT
+  		<include refid="columns"/>
+  	FROM
+  		activation_key
+  </select>
+  
+  <select id="get" parameterType="int" resultType="ActivationKey">
+  	SELECT
+  		<include refid="columns"/>
+  	FROM
+  		activation_key
+  	WHERE id = #{id};  		
+  </select>  
+  
+  <insert id="create" parameterType="ActivationKey" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO activation_key (name, description, site_admin) 
+  	VALUES (#{name}, #{description}, #{siteAdmin});
+  </insert>
+  
+  <update id="save" parameterType="ActivationKey">
+  	UPDATE activation_key 
+  	SET name = #{name}, description = #{description}, site_admin = #{siteAdmin}
+  	WHERE id = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="ActivationKey">
+  	DELETE FROM activation_key 
+  	WHERE id = #{id};
+  </delete>   
+  
+</mapper>
