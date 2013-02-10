@@ -3,13 +3,20 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class PeriodScore.
  *
  * @author andrea.colleoni
  */
-public final class PeriodScore {
+public final class PeriodScore implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5204652494171085180L;
+
 	/** The id. */
 	private int id;
 	

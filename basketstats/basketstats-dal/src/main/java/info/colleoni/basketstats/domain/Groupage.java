@@ -3,13 +3,20 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class Groupage.
  *
  * @author andrea.colleoni
  */
-public final class Groupage extends ElementType {
+public final class Groupage extends ElementType implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3899139474552449571L;
+
 	/** The championship id. */
 	private int championshipId;
 	

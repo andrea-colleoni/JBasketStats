@@ -3,15 +3,28 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class Championship.
  *
  * @author andrea.colleoni
  */
-public final class Championship {
+public final class Championship implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2762329404106381229L;
+
+	/** The id. */
+	private int id;
 	
 	/** The tenant id. */
 	private int tenantId;
+	
+	/** The division. */
+	private String division;
 	
 	/** The tenant. */
 	private Tenant tenant;
@@ -92,5 +105,33 @@ public final class Championship {
 	 */
 	public void setSeason(Season season) {
 		this.season = season;
+	}
+
+	/**
+	 * @return the division
+	 */
+	public String getDivision() {
+		return division;
+	}
+
+	/**
+	 * @param division the division to set
+	 */
+	public void setDivision(String division) {
+		this.division = division;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 }

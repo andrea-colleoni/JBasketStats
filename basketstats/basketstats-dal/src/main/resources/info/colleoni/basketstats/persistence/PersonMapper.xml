@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.PersonMapper">
+
+  <cache />
+  
+<sql id="periodColumns"> id </sql>
+	<sql id="columns"> tenant_id,  name,  surname,  fullname,  
+	nick,  bio,  email,  phone_number,  document_id,  
+	document_type_id,  birth_date,  birth_place,  address,  city,  
+	zipcode,  country  </sql>
+	<sql id="table"> person  </sql>
+
+	<select id="all" resultType="Person">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Person">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Person"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{tenantId},
+			#{name},
+			#{surname},
+			#{fullname},
+			#{nick},
+			#{bio},
+			#{email},
+			#{phoneNumber},
+			#{documentId},
+			#{documentTypeId},
+			#{birthDate},
+			#{birthPlace},
+			#{address},
+			#{city},
+			#{zipcode},
+			#{country}
+		);
+	</insert>
+
+	<update id="save" parameterType="Person">
+		UPDATE
+			<include refid="table" />
+		SET
+			tenant_id = #{tenantId},
+			name = #{name},
+			surname = #{surname},
+			fullname = #{fullname},
+			nick = #{nick},
+			bio = #{bio},
+			email = #{email},
+			phone_number = #{phoneNumber},
+			document_id = #{documentId},
+			document_type_id = #{documentTypeId},
+			birth_date = #{birthDate},
+			birth_place = #{birthPlace},
+			address = #{address},
+			city = #{city},
+			zipcode = #{zipcode},
+			country = #{country}
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Person">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</delete>
+  
+</mapper>

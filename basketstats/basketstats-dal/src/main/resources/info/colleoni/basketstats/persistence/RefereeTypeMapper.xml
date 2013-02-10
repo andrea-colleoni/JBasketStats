@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.RefereeTypeMapper">
+
+  <cache />
+  
+<sql id="periodColumns"> id </sql>
+	<sql id="columns"> name, description  </sql>
+	<sql id="table"> referee_type  </sql>
+
+	<select id="all" resultType="RefereeType">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="RefereeType">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="RefereeType"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{name},
+			#{description}
+		);
+	</insert>
+
+	<update id="save" parameterType="RefereeType">
+		UPDATE
+			<include refid="table" />
+		SET
+			name = #{name},
+			description = #{description}
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="RefereeType">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</delete>
+  
+</mapper>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.PeriodScoreMapper">
+
+  	<cache />
+  
+	<sql id="keyColumns"> id </sql>
+	<sql id="columns"> period_type_id,  game_id,  home_score,  visitor_score  </sql>
+	<sql id="table"> period_score  </sql>
+
+	<select id="all" resultType="PeriodScore">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="PeriodScore">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="PeriodScore"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{periodTypeId},
+			#{periodTypeId},
+			#{homeScore},
+			#{visitorScore}
+		);
+	</insert>
+
+	<update id="save" parameterType="PeriodScore">
+		UPDATE
+			<include refid="table" />
+		SET
+			period_type_id = #{periodTypeId},
+			game_id = #{gameId},
+			home_score = #{homeScore},
+			visitor_score = #{visitorScore}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="PeriodScore">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
 public class ChampionshipService extends CRUDService<Championship>{
 
 	@Autowired
-	private CRUDMapper<Championship> tenantMapper;
+	private CRUDMapper<Championship> championshipMapper;
 
 	@Override
 	protected CRUDMapper<Championship> getElementMapper() {
-		return tenantMapper;
+		return championshipMapper;
 	}
 	
 }

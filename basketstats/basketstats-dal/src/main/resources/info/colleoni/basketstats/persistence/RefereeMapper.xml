@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.RefereeMapper">
+
+  	<cache />
+  
+	<sql id="keyColumns"> id </sql>
+	<sql id="columns"> person_id,  game_id,  referee_type_id  </sql>
+	<sql id="table"> referee  </sql>
+
+	<select id="all" resultType="Referee">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Referee">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Referee"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{personId},
+			#{gameId},
+			#{refereeTypeId}
+		);
+	</insert>
+
+	<update id="save" parameterType="Referee">
+		UPDATE
+			<include refid="table" />
+		SET
+			person_id = #{personId},
+			game_id = #{gameId},
+			referee_type_id = #{refereeTypeId}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Referee">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

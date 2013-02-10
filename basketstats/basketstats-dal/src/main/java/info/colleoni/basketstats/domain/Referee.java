@@ -3,13 +3,20 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class Referee.
  *
  * @author andrea.colleoni
  */
-public final class Referee {
+public final class Referee implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 762024401809512436L;
+
 	/** The id. */
 	private int id;
 	

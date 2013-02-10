@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.MemberMapper">
+
+  	<cache />
+  
+	<sql id="keyColumns"> id </sql>
+	<sql id="columns"> person_id,  team_id,  card_number,  shirt_number  </sql>
+	<sql id="table"> member  </sql>
+
+	<select id="all" resultType="Member">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Member">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Member"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{personId},
+			#{teamId},
+			#{cardNumber},
+			#{shirtNumber}
+		);
+	</insert>
+
+	<update id="save" parameterType="Member">
+		UPDATE
+			<include refid="table" />
+		SET
+			person_id = #{personId},
+			team_id = #{teamId},
+			card_number = #{cardNumber},
+			shirt_number = #{shirtNumber}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Member">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

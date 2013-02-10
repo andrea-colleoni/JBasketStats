@@ -3,6 +3,7 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,12 @@ import java.util.List;
  *
  * @author andrea.colleoni
  */
-public final class Organization extends ElementType {
+public final class Organization extends ElementType implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7033871481016192842L;
 
 	/** The tenant id. */
 	private int tenantId;

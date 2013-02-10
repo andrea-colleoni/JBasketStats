@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/test-ctx.xml" })
-public class AttachmentTypeTest {
+public class AttachmentTypeServiceTest {
 
 	@Autowired
 	private transient AttachmentTypeService attachmentTypeService;

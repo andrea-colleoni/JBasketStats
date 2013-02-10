@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.GroupageMapper">
+
+  <cache />
+  
+<sql id="keyColumns"> id </sql>
+	<sql id="columns"> championship_id,  name,  description  </sql>
+	<sql id="table"> groupage  </sql>
+
+	<select id="all" resultType="Groupage">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Groupage">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Groupage"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{championshipId},
+			#{name},
+			#{description}
+		);
+	</insert>
+
+	<update id="save" parameterType="Groupage">
+		UPDATE
+			<include refid="table" />
+		SET
+			championship_id = #{championshipId},
+			name = #{name},
+			description = #{description}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Groupage">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

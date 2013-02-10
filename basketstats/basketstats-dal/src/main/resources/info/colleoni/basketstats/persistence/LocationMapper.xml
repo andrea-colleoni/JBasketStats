@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.LocationMapper">
+
+  <cache />
+  
+<sql id="keyColumns"> id </sql>
+	<sql id="columns"> tenant_id,  name,  description,  location_type_id  </sql>
+	<sql id="table"> location  </sql>
+
+	<select id="all" resultType="Location">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Location">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Location"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{tenantId},
+			#{name},
+			#{description},
+			#{locationTypeId}
+		);
+	</insert>
+
+	<update id="save" parameterType="Location">
+		UPDATE
+			<include refid="table" />
+		SET
+			tenant_id = #{tenantId},
+			name = #{name},
+			description = #{description},
+			location_type_id = #{locationTypeId}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Location">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

@@ -22,6 +22,58 @@
 	<bean id="documentTypeService" class="info.colleoni.basketstats.service.DocumentTypeService">
 	</bean>
 
+	<bean id="gameService" class="info.colleoni.basketstats.service.GameService">
+	</bean>
+
+	<bean id="groupageService" class="info.colleoni.basketstats.service.GroupageService">
+	</bean>
+
+	<bean id="injuryService" class="info.colleoni.basketstats.service.InjuryService">
+	</bean>
+
+	<bean id="keyTypeService" class="info.colleoni.basketstats.service.KeyTypeService">
+	</bean>
+
+	<bean id="locationService" class="info.colleoni.basketstats.service.LocationService">
+	</bean>
+
+	<bean id="locationTypeService" class="info.colleoni.basketstats.service.LocationTypeService">
+	</bean>
+
+	<bean id="medicalReviewService" class="info.colleoni.basketstats.service.MedicalReviewService">
+	</bean>
+
+	<bean id="memberService" class="info.colleoni.basketstats.service.MemberService">
+	</bean>
+
+	<bean id="organizationService" class="info.colleoni.basketstats.service.OrganizationService">
+	</bean>
+
+	<bean id="periodScoreService" class="info.colleoni.basketstats.service.PeriodScoreService">
+	</bean>
+
+	<bean id="periodTypeService" class="info.colleoni.basketstats.service.PeriodTypeService">
+	</bean>
+
+	<bean id="personService" class="info.colleoni.basketstats.service.PersonService">
+	</bean>
+
+	<bean id="phaseService" class="info.colleoni.basketstats.service.PhaseService">
+	</bean>
+
+	<bean id="playerScoreService" class="info.colleoni.basketstats.service.PlayerScoreService">
+	</bean>
+
+	<bean id="playerScoreTypeService"
+		class="info.colleoni.basketstats.service.PlayerScoreTypeService">
+	</bean>
+
+	<bean id="refereeService" class="info.colleoni.basketstats.service.RefereeService">
+	</bean>
+	
+	<bean id="refereeTypeService" class="info.colleoni.basketstats.service.RefereeTypeService">
+	</bean>	
+
 	<bean id="tenantService" class="info.colleoni.basketstats.service.TenantService">
 	</bean>
 

@@ -3,6 +3,7 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,13 @@ import java.util.Date;
  *
  * @author andrea.colleoni
  */
-public class MedicalReview {
+public class MedicalReview implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4276942361189759682L;
+
 	/** The id. */
 	private int id;
 	
@@ -19,7 +25,7 @@ public class MedicalReview {
 	private Date reviewDate;
 	
 	/** The review expirty date. */
-	private Date reviewExpirtyDate;
+	private Date reviewExpiryDate;
 	
 	/** The organization id. */
 	private int organizationId;
@@ -74,8 +80,8 @@ public class MedicalReview {
 	 *
 	 * @return the reviewExpirtyDate
 	 */
-	public Date getReviewExpirtyDate() {
-		return reviewExpirtyDate;
+	public Date getReviewExpiryDate() {
+		return reviewExpiryDate;
 	}
 	
 	/**
@@ -83,8 +89,8 @@ public class MedicalReview {
 	 *
 	 * @param reviewExpirtyDate the reviewExpirtyDate to set
 	 */
-	public void setReviewExpirtyDate(Date reviewExpirtyDate) {
-		this.reviewExpirtyDate = reviewExpirtyDate;
+	public void setReviewExpiryDate(Date reviewExpirtyDate) {
+		this.reviewExpiryDate = reviewExpirtyDate;
 	}
 	
 	/**

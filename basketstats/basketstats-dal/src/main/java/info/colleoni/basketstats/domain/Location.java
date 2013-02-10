@@ -3,13 +3,20 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class Location.
  *
  * @author andrea.colleoni
  */
-public final class Location extends ElementType {
+public final class Location extends ElementType implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3575939924010904207L;
+
 	/** The tenant id. */
 	private int tenantId;
 	

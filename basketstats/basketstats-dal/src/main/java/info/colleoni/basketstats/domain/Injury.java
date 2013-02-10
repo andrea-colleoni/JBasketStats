@@ -3,6 +3,7 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,13 @@ import java.util.Date;
  *
  * @author andrea.colleoni
  */
-public final class Injury {
+public final class Injury implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4021098889718831130L;
+
 	/** The id. */
 	private int id;
 	

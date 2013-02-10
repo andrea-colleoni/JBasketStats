@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.InjuryMapper">
+
+  <cache />
+  
+<sql id="keyColumns"> id </sql>
+	<sql id="columns"> description,  member_id,  injury_expiry_date  </sql>
+	<sql id="table"> injury  </sql>
+
+	<select id="all" resultType="Injury">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="Injury">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="Injury"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{description},
+			#{memberId},
+			#{injuryExpiryDate}
+		);
+	</insert>
+
+	<update id="save" parameterType="Injury">
+		UPDATE
+			<include refid="table" />
+		SET
+			description = #{description},
+			member_id = #{memberId},
+			injury_expiry_date = #{injuryExpiryDate}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="Injury">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

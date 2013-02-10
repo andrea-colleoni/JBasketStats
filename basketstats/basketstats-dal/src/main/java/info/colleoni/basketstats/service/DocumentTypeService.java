@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
 public class DocumentTypeService extends CRUDService<DocumentType>{
 
 	@Autowired
-	private CRUDMapper<DocumentType> tenantMapper;
+	private CRUDMapper<DocumentType> documentTypeMapper;
 
 	@Override
 	protected CRUDMapper<DocumentType> getElementMapper() {
-		return tenantMapper;
+		return documentTypeMapper;
 	}
 	
 }

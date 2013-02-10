@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.PlayerScoreMapper">
+
+  <cache />
+  
+<sql id="periodColumns"> id </sql>
+	<sql id="columns"> game_id,  member_id,  player_score_type_id,  checked,  grade,  goals,  attempts  </sql>
+	<sql id="table"> player_score  </sql>
+
+	<select id="all" resultType="PlayerScore">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="PlayerScore">
+		SELECT
+			<include refid="periodColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="PlayerScore"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{gameId},
+			#{memberId},
+			#{playerScoreTypeId},
+			#{checked},
+			#{grade},
+			#{goals},
+			#{attempts}
+		);
+	</insert>
+
+	<update id="save" parameterType="PlayerScore">
+		UPDATE
+			<include refid="table" />
+		SET
+			game_id = #{gameId},
+			member_id = #{memberId},
+			player_score_type_id = #{playerScoreTypeId},
+			checked = #{checked},
+			grade = #{grade},
+			goals = #{goals},
+			attempts = #{attempts}
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="PlayerScore">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="periodColumns" /> = #{id};
+	</delete>
+  
+</mapper>

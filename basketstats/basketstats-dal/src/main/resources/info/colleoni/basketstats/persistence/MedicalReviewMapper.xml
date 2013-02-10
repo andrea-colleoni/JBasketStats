@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.MedicalReviewMapper">
+
+  <cache />
+  
+<sql id="keyColumns"> id </sql>
+	<sql id="columns"> review_date,  review_expiry_date,  organization_id,  person_id  </sql>
+	<sql id="table"> medical_review  </sql>
+
+	<select id="all" resultType="MedicalReview">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />;
+	</select>
+
+	<select id="get" parameterType="int" resultType="MedicalReview">
+		SELECT
+			<include refid="keyColumns" />,
+			<include refid="columns" />
+		FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" />= #{id};
+	</select>
+
+	<insert id="create" parameterType="MedicalReview"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			<include refid="table" />
+		(
+			<include refid="columns" />
+		)
+		VALUES
+		(
+			#{reviewDate},
+			#{reviewExpiryDate},
+			#{organizationId},
+			#{personId}
+		);
+	</insert>
+
+	<update id="save" parameterType="MedicalReview">
+		UPDATE
+			<include refid="table" />
+		SET
+			review_date = #{reviewDate},
+			review_expiry_date = #{reviewExpiryDate},
+			organization_id = #{organizationId},
+			person_id = #{personId}
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</update>
+
+	<delete id="remove" parameterType="MedicalReview">
+		DELETE FROM
+			<include refid="table" />
+		WHERE
+			<include refid="keyColumns" /> = #{id};
+	</delete>
+  
+</mapper>

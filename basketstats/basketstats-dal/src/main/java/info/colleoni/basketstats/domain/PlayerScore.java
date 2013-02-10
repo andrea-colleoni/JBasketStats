@@ -3,13 +3,20 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
+
 /**
  * The Class PlayerScore.
  *
  * @author andrea.colleoni
  */
-public final class PlayerScore {
+public final class PlayerScore implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -172871469579643055L;
+
 	/** The id. */
 	private int id;
 	
