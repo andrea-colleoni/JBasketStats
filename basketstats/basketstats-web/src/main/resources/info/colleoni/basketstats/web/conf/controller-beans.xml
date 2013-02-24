@@ -8,10 +8,6 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<bean name="/home.html"
-		class="info.colleoni.basketstats.web.controller.HomeController" />
-		
-	<bean name="/tenant/list.html"
-		class="info.colleoni.basketstats.web.controller.TenantController" />		
+	<context:component-scan base-package="info.colleoni.basketstats.web.controller"/>		
 		
 </beans>

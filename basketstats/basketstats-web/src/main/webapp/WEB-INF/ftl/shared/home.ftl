@@ -1,0 +1,1 @@
+<span><@spring.message "welcome" /></span>

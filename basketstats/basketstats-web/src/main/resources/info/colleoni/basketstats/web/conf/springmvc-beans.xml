@@ -16,12 +16,12 @@
 	<!-- **************************************************************** -->
 	<mvc:resources location="/images/" mapping="/images/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/scripts/" mapping="/scripts/**" />
 
 	<!-- **************************************************************** -->
 	<!-- SPRING ANNOTATION PROCESSING -->
 	<!-- **************************************************************** -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="thymeleafexamples.stsm" />
 
 	<!-- **************************************************************** -->
 	<!-- MESSAGE EXTERNALIZATION/INTERNATIONALIZATION -->
@@ -31,4 +31,7 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="info/colleoni/basketstats/web/messages" />
 	</bean>
+	
+	<!-- Default page -->
+	<mvc:view-controller path="/" view-name="home"/>
 </beans>

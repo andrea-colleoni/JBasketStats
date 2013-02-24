@@ -9,21 +9,20 @@ public final class Tenant implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 213688285947878140L;
-
+	
 	/** The description. */
 	private String description;
+	
 	/** The id. */
 	private int id;
-
+	
 	/** The name. */
 	private String name;
-
+	
 	/** The site admin. */
 	private boolean siteAdmin;
 
 	/**
-	 * Gets the description.
-	 *
 	 * @return the description
 	 */
 	public String getDescription() {
@@ -41,7 +40,7 @@ public final class Tenant implements Serializable {
 
 	/**
 	 * Gets the name.
-	 * 
+	 *
 	 * @return the name
 	 */
 	public String getName() {
@@ -50,8 +49,6 @@ public final class Tenant implements Serializable {
 	}
 
 	/**
-	 * Checks if is site admin.
-	 *
 	 * @return the siteAdmin
 	 */
 	public boolean isSiteAdmin() {
@@ -69,9 +66,8 @@ public final class Tenant implements Serializable {
 
 	/**
 	 * Sets the id.
-	 * 
-	 * @param id
-	 *            the id to set
+	 *
+	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
