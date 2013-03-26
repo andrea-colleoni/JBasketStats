@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.UserMapper">
+
+  <cache />
+  
+  <sql id="keyColumns"> id </sql>
+  <sql id="columns"> tenant_id,  username,  password,  active,  subscription_date,  tenant_admin </sql>
+  <sql id="table"> user </sql>
+  
+  <select id="all" resultType="User">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>;
+  </select>
+  
+  <select id="get" parameterType="int" resultType="User">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>
+  	WHERE <include refid="keyColumns"/> = #{id};
+  </select>  
+  
+  <insert id="create" parameterType="User" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO 
+  		<include refid="table"/> 
+  		( <include refid="columns"/> ) 
+  	VALUES 
+  		(
+  		#{tenantId},
+  		#{username},
+  		#{password},
+  		#{active},
+  		#{subscriptionDate},
+  		#{tenantAdmin}
+  		);
+  </insert>
+  
+  <update id="save" parameterType="User">
+  	UPDATE 
+  		<include refid="table"/> 
+  	SET 
+  		tenant_id = #{tenantId},
+  		username = #{username},
+  		password = #{password},
+  		active = #{active},
+  		subscription_date = #{subscriptionDate},
+  		tenant_admin = #{tenantAdmin}  	
+  	WHERE <include refid="keyColumns"/> = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="User">
+  	DELETE FROM 
+  		<include refid="table"/> 
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </delete>  
+  
+  <!--  custom SQL  -->
+  
+  <sql id="pfxKeyColumns"> u.id </sql>  
+  <sql id="pfxColumns"> u.tenant_id,  u.username,  u.password,  u.active,  u.subscription_date,  u.tenant_admin </sql>  
+  <sql id="pfxTable"> user u </sql>  
+  
+  <select id="verify" parameterType="java.util.Map" resultType="int">
+  	SELECT
+  		COUNT(*) as matching_users
+  	FROM
+  		<include refid="pfxTable"/> INNER JOIN tenant t
+  		ON u.tenant_id	=	t.id
+  	WHERE 
+  			u.username 		= #{username}
+  		AND u.password 		= #{password}
+  		AND t.key			= IFNULL(#{key}, t.key);
+  </select>   
+    
+  <select id="byUsername" parameterType="java.util.Map" resultType="User">
+  	SELECT
+  		<include refid="pfxKeyColumns"/>,
+  		<include refid="pfxColumns"/>
+  	FROM
+  		<include refid="pfxTable"/> INNER JOIN tenant t
+  		ON u.tenant_id	=	t.id
+  	WHERE   		
+  			u.username 		= #{username}
+  		AND t.key			= IFNULL(#{key}, t.key);
+  </select>  
+  
+</mapper>

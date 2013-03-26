@@ -3,8 +3,9 @@
  */
 package info.colleoni.basketstats.web.controller;
 
+import info.colleoni.basketstats.web.session.ContextData;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,12 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	
 	@Autowired
-	private MessageSource messageSource;
+	private ContextData contextData;
 
-	@RequestMapping({ "/", "/home" })
-	public String home(@ModelAttribute("model") ModelMap model) {
+	@RequestMapping({ "/", "/home", "{tenantKey}/home" })
+	public void home(@ModelAttribute("model") ModelMap model) {
 		model.addAttribute("contentFTL", "home.ftl");
-		return "shared/layout";
 	}
 
 }

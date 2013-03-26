@@ -11,6 +11,10 @@ div {
 	text-align: right;
 }
 
+.group {
+	
+}
+
 .group:after {
 	clear: both;
 	content: ".";
@@ -32,12 +36,10 @@ header[role="banner"] {
 }
 
 header .inner nav {
-	left: 0;
-	padding: 0 5px;
-	position: relative;
-	top: 91px;
-	width: 1010px;
-	z-index: 3;
+    position: absolute;
+    top: 110px;
+    width: 1020px;
+    z-index: 3;
 }
 
 #content {
@@ -48,7 +50,7 @@ header .inner nav {
 	background: none repeat scroll 0 0 #FFFFFF;
 	border-top: 45px solid transparent;
 	margin: -45px auto 0;
-	padding: 24px 0 0;
+	padding: 15px;
 	width: 1020px;
 }
 
@@ -511,3 +513,38 @@ input.placeholder-text,textarea.placeholder-text {
 	}
 }
 /* END OF FORMS */
+
+/* COMMON CLASSES */
+.site-title {
+    color: white;
+    display: block;
+    font-size: 16pt;
+    font-weight: bold;	
+}
+
+.site-watchword {
+    color: white;
+    font-variant: small-caps;	
+}
+/* END OF COMMON CLASSES */
+
+/* SPECIFIC IDs */
+#userInfo {
+    background-color: lightgray;
+    border: 1px dotted darkgray;
+    border-radius: 5px 5px 5px 5px;
+    left: 860px;
+    padding: 10px;
+    position: relative;
+    top: -35px;
+    width: 300px;	
+}
+
+#userInfo span{
+    color: white;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+/* END OF SPECIFIC IDs */

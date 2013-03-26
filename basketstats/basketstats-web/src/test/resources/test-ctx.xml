@@ -12,6 +12,5 @@
 	
 	<import resource="classpath:info/colleoni/basketstats/conf/datasource-beans.xml"/>
 	<import resource="classpath:info/colleoni/basketstats/dal-beans.xml"/>
-	<import resource="classpath:info/colleoni/basketstats/web-beans.xml" />
 	
 </beans>

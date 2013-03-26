@@ -4,7 +4,7 @@
 package info.colleoni.basketstats.service;
 
 import info.colleoni.basketstats.domain.AttachmentType;
-import info.colleoni.basketstats.persistence.CRUDMapper;
+import info.colleoni.basketstats.persistence.AttachmentTypeMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class AttachmentTypeService extends CRUDService<AttachmentType>{
 
+	/** The attachment type mapper. */
 	@Autowired
-	private CRUDMapper<AttachmentType> attachmentTypeMapper;
+	private AttachmentTypeMapper attachmentTypeMapper;
 
+	/* (non-Javadoc)
+	 * @see info.colleoni.basketstats.service.CRUDService#getElementMapper()
+	 */
 	@Override
-	protected CRUDMapper<AttachmentType> getElementMapper() {
+	protected AttachmentTypeMapper getElementMapper() {
 		return attachmentTypeMapper;
 	}
 	

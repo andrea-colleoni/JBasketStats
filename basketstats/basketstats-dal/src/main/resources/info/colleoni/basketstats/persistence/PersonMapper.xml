@@ -90,5 +90,24 @@
 		WHERE
 			<include refid="periodColumns" /> = #{id};
 	</delete>
+	
+  <!--  custom SQL  --> 
+  
+  <sql id="pfxKeyColumns"> p.id </sql>  
+  <sql id="pfxColumns"> p.tenant_id,  p.name,  p.surname,  p.fullname,  
+	p.nick,  p.bio,  p.email,  p.phone_number,  p.document_id,  
+	p.document_type_id,  p.birth_date,  p.birth_place,  p.address,  p.city,  
+	p.zipcode,  p.country  </sql>  
+  <sql id="pfxTable"> person p </sql>  
+	
+  <select id="allByTenant" parameterType="String" resultType="Person">
+  	SELECT
+  		<include refid="pfxKeyColumns"/>,
+  		<include refid="pfxColumns"/>
+  	FROM
+  		<include refid="pfxTable"/> inner join tenant t
+  		on p.tenant_id = t.id
+  	WHERE t.`key` = #{tenantKey};
+  </select>  	
   
 </mapper>

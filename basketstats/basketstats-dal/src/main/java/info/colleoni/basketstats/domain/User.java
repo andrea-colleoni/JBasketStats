@@ -3,6 +3,7 @@
  */
 package info.colleoni.basketstats.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,13 @@ import java.util.Date;
  *
  * @author andrea.colleoni
  */
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1795258927158717271L;
+
 	/** The id. */
 	private int id;
 	
@@ -19,7 +25,7 @@ public class User {
 	private int tenantId;
 	
 	/** The tenata. */
-	private Tenant tenata;
+	private Tenant tenant;
 	
 	/** The username. */
 	private String username;
@@ -77,8 +83,8 @@ public class User {
 	 *
 	 * @return the tenata
 	 */
-	public Tenant getTenata() {
-		return tenata;
+	public Tenant getTenant() {
+		return tenant;
 	}
 	
 	/**
@@ -86,8 +92,8 @@ public class User {
 	 *
 	 * @param tenata the tenata to set
 	 */
-	public void setTenata(Tenant tenata) {
-		this.tenata = tenata;
+	public void setTenant(Tenant tenata) {
+		this.tenant = tenata;
 	}
 	
 	/**

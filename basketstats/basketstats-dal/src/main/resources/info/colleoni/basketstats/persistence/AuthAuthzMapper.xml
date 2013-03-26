@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+		
+<mapper namespace="info.colleoni.basketstats.persistence.AuthAuthzMapper">
+
+  <cache />
+  
+  <sql id="keyColumns"> id </sql>
+  <sql id="columns"> `uri`,  `needs_login`,  `needs_tenant_admin`,  `needs_site_admin`,  `needs_tenant`  </sql>
+  <sql id="table"> auth_authz  </sql>
+  
+ <select id="all" resultType="AuthAuthz">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>;
+  </select>
+  
+  <select id="get" parameterType="int" resultType="AuthAuthz">
+  	SELECT
+  		<include refid="keyColumns"/>,
+  		<include refid="columns"/>
+  	FROM
+  		<include refid="table"/>
+  	WHERE <include refid="keyColumns"/> = #{id};  		
+  </select>  
+  
+  <insert id="create" parameterType="AuthAuthz" useGeneratedKeys="true"
+    keyProperty="id">
+  	INSERT INTO 
+  		<include refid="table"/> 
+  		(<include refid="columns"/>) 
+  	VALUES 
+  		(
+  		#{uri},  
+  		#{needsLogin},
+  		#{needsTenantAdmin},  
+  		#{needsSiteAdmin}
+  		);
+  </insert>
+  
+  <update id="save" parameterType="AuthAuthz">
+  	UPDATE 
+  		<include refid="table"/> 
+  	SET 
+	  	uri = #{uri}, 
+	  	needs_login = #{needsLogin}, 
+	  	needs_tenant_admin = #{needsTenantAdmin}, 
+	  	needs_site_admin = #{needsSiteAdmin}
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </update>  
+  
+  <delete id="remove" parameterType="AuthAuthz">
+  	DELETE FROM 
+  		<include refid="table"/> 
+  	WHERE 
+  		<include refid="keyColumns"/> = #{id};
+  </delete>   
+  
+ <!--  custom SQL  -->
+  
+  <sql id="pfxKeyColumns"> aa.id </sql>  
+  <sql id="pfxColumns"> aa.`uri`,  aa.`needs_login`,  aa.`needs_tenant_admin`,  aa.`needs_site_admin`,  aa.`needs_tenant` </sql>  
+  <sql id="pfxTable"> auth_authz aa </sql>    
+  
+  <select id="byUri" parameterType="String" resultType="AuthAuthz">
+  	SELECT
+  		<include refid="pfxKeyColumns"/>,
+  		<include refid="pfxColumns"/>
+  	FROM
+  		<include refid="pfxTable"/>
+  	WHERE aa.`uri` = #{uri};  		
+  </select>    
+  
+</mapper>

@@ -43,32 +43,62 @@
 							</excludes>
 						</scanTargetPattern>
 					</scanTargetPatterns>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanIntervalSeconds>60</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springVersion}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.19</version>
+		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+
+		<!-- sibling modules -->
 		<dependency>
 			<groupId>info.colleoni</groupId>
 			<artifactId>basketstats-dal</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- System dependencies -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.19</version>
 		</dependency>
 	</dependencies>
 </project>

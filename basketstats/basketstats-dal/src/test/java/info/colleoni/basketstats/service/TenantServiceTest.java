@@ -11,20 +11,22 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 /**
+ * The Class TenantServiceTest.
+ *
  * @author andrea.colleoni
- * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/test-ctx.xml" })
 public class TenantServiceTest {
 
+	/** The tenant service. */
 	@Autowired
 	private transient TenantService tenantService;
 
 	/**
-	 * Test method for
+	 * Test method for.
+	 *
 	 * {@link info.colleoni.basketstats.service.TenantService#all()}.
 	 */
 	@Test
@@ -37,6 +39,9 @@ public class TenantServiceTest {
 		Assert.assertTrue(testResult);
 	}
 
+	/**
+	 * Test dml.
+	 */
 	@Test
 	public void testDML() {
 		Tenant t = new Tenant();
@@ -44,6 +49,7 @@ public class TenantServiceTest {
 		t.setDescription("test tenant");
 		t.setName("Test");
 		t.setSiteAdmin(false);
+		t.setKey("TEST");
 		tenantService.insert(t);
 		Assert.assertTrue(t.getId() > 0);
 
@@ -57,4 +63,13 @@ public class TenantServiceTest {
 		t = tenantService.get(t.getId());
 		Assert.assertNull(t);
 	}
+	
+	/**
+	 * Test by key.
+	 */
+	@Test
+	public void testByKey() {
+		Assert.assertNotNull(tenantService.byKey("COLLEONI"));
+		Assert.assertNull(tenantService.byKey("FAKE"));
+	}	
 }

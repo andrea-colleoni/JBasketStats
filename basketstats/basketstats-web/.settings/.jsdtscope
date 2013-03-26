@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="scripts/jquery-1.8.3.min.js" kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="scripts/jquery-1.9.1.min.js|scripts/jquery-ui-1.10.1.custom.min.js" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>
